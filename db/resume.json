@@ -1,0 +1,188 @@
+{
+  "name": "Michael Mehl",
+  "address": {
+    "street": "98 Hammonds Lane Apt 213",
+    "city": "Brooklyn Park",
+    "state": "MD",
+    "zip": "21225"
+  },
+  "contact": {
+    "email": "michaelalanmehl@gmail.com",
+    "phone": "410-599-5209",
+    "github": "https://github.com/mikemehl",
+    "sourcehut": "https://sr.ht/~micklemeal",
+    "website": "https://mikemehl.com"
+  },
+  "objective": "I am a software engineer who loves his craft. My primary driving force as an engineer is curiosity, and I take deep pride in my background knowledge in the roots of computation and mathematics. I have a deep passion for open source software and the Linux ecosystem. I am looking for a position where I can make an impact while growing my knowledge and skills.",
+  "jobs": [
+    {
+      "company": "Anne Arundel Community College",
+      "address": {
+        "street": "101 College Pkwy",
+        "city": "Arnold",
+        "state": "MD",
+        "zip": "21012"
+      },
+      "position": "Mathematics Tutor",
+      "dates": {
+        "start": "2016-08",
+        "end": "2017-07"
+      },
+      "description": "I tutored students at AACC's Math Lab, a walk in tutoring environment. I helped students to master the skills necessary for success in all mathematics subjects, from basic algebra to differential equations."
+    },
+    {
+      "company": "Northrop Grumman",
+      "address": {
+        "street": "7323 Aviation Blvd",
+        "city": "Baltimore",
+        "state": "MD",
+        "zip": "21240"
+      },
+      "position": "Embedded Software Engineer",
+      "dates": {
+        "start": "2017-07",
+        "end": "2019-08"
+      },
+      "description": " I worked on the embedded software for several large radar systems, with areas of functionality including signal processing, radio control, target tracking, and data transport. As a key engineer on the team, I worked closely with systems engineers to implement new algorithms, perform lab testing, and improve performance.",
+      "highlights": [
+        "Architected and implemented a new search and target tracking algorithm in C++, utilizing first of it's kind hardware functionality.",
+        "Worked with a team to port a legacy radar system to a new hardware platform, including a custom Linux distribution.",
+        "Developed a testing application for replaying recorded radar data, allowing for rapid development and testing of new algorithms."
+      ]
+    },
+    {
+      "company": "Very",
+      "address": {
+        "street": "280 W Kagy Blvd STE D #292",
+        "city": "Bozeman",
+        "state": "MT",
+        "zip": "59715"
+      },
+      "position": "Firmware Engineer",
+      "dates": {
+        "start": "2019-08"
+      },
+      "description": "I worked on the firmware for several IoT products for various clients, including utility, air quality, safety, and industrial applications. I worked closely with engineers from diverse fields to develop new products, and with clients to understand their needs and develop solutions.",
+      "highlights": [
+        "As the primary firmware engineer, utilized Buildroot and Nerves/Elixir in the development of an air quality monitoring system for a custom hardware platform. Designed to expand to support additional sensors and functionality.",
+        "Improved the performance of a bare metal embedded system for an IoT utility monitoring product and helped the client bring their product to launch.",
+        "Worked closely with backend engineers to enable a new product to communicate with AWS IoT.",
+        "Aided clients in preparing their products for FCC and UL certification."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "name": "Anne Arundel Community College",
+      "address": {
+        "street": "101 College Pkwy",
+        "city": "Arnold",
+        "state": "MD",
+        "zip": "21012"
+      },
+      "degrees": [
+        "A.S. in Computer Science",
+        "A.S. in Mathematics"
+      ],
+      "dates": {
+        "start": "2014-01",
+        "end": "2016-07"
+      },
+      "gpa": 3.8,
+      "awards": [
+        {
+          "name": "Mathematics Department Award",
+          "date": "2016-06"
+        }
+      ]
+    },
+    {
+      "name": "University of Maryland, Baltimore County",
+      "address": {
+        "street": "1000 Hilltop Cir",
+        "city": "Baltimore",
+        "state": "MD",
+        "zip": "21250"
+      },
+      "degrees": [
+        "B.S. in Computer Science",
+        "B.A. in Mathematics"
+      ],
+      "dates": {
+        "start": "2016-08",
+        "end": "2018-12"
+      },
+      "gpa": 3.8,
+      "awards": [
+        {
+          "name": "Computer Science Department Magna Cum Laude",
+          "date": "2018-12"
+        },
+        {
+          "name": "Pi Mu Epsilon Mathematics Honor Society",
+          "date": "2017-08"
+        }
+      ]
+    }
+  ],
+  "skills": {
+    "languages": {
+      "expert": [
+        "C",
+        "C++",
+        "Python",
+        "Lua",
+        "Bash"
+      ],
+      "proficient": [
+        "Rust",
+        "Go",
+        "Elixir",
+        "Scheme"
+      ],
+      "basic": [
+        "HTML",
+        "CSS",
+        "Typescript/JavaScript",
+        "SQL",
+        "Haskell"
+      ]
+    },
+    "platforms": [
+      "Windows",
+      "Linux",
+      "Buildroot",
+      "FreeRTOS",
+      "Nerves",
+      "Zephyr",
+      "Bare Metal",
+      "AWS IoT"
+    ],
+    "tools": [
+      "Git",
+      "Jira",
+      "CircleCI",
+      "Github Actions",
+      "Docker",
+      "Caddy",
+      "Ansible",
+      "GDB"
+    ]
+  },
+  "interests": {
+    "professional": [
+      "Embedded Systems",
+      "Firmware",
+      "Compilers",
+      "Linux",
+      "Rust"
+    ],
+    "personal": [
+      "Music",
+      "Video Games",
+      "Board Games",
+      "Horror",
+      "Home Server Administration"
+    ]
+  }
+}
