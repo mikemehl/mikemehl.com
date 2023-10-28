@@ -1,6 +1,7 @@
 CREATE TABLE address(
   id integer primary key,
   street text not null,
+  city text not null,
   state text not null,
   zip text not null
 );
@@ -46,12 +47,12 @@ CREATE table education(
   degree text not null,
   start_date date not null,
   end_date date not null,
-  description text not null,
+  gpa text not null,
   address_id integer not null,
   foreign key (address_id) references address(id)
 );
 
-CREATE table highlights(
+CREATE table highlight(
   id integer primary key,
   description text not null,
   experience_id integer,
@@ -60,7 +61,7 @@ CREATE table highlights(
   foreign key (education_id) references education(id)
 );
 
-CREATE table websites(
+CREATE table website(
   id integer primary key,
   url text not null,
   name text not null,
