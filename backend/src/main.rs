@@ -1,6 +1,7 @@
 pub mod db;
 
-use actix_web::{get, App, HttpResponse, HttpServer, Responder};
+use actix_web::{get, web, App, HttpResponse, HttpServer, Responder};
+use anyhow::Result;
 use lazy_static::lazy_static;
 use tera::{Context, Tera};
 
@@ -30,7 +31,10 @@ async fn hello() -> impl Responder {
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
-    HttpServer::new(|| App::new().service(hello))
+    let mut resume_db = web::Data::new(db::Db {
+        connection: std::sync::Mutex::new(db::init().unwrap()),
+    });
+    HttpServer::new(move || App::new().app_data(resume_db).service(hello))
         .bind(("0.0.0.0", 8080))?
         .run()
         .await
