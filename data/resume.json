@@ -14,7 +14,7 @@
     "website": "https://mikemehl.com"
   },
   "objective": "I am a software engineer who loves his craft. My primary driving force as an engineer is curiosity, and I take deep pride in my background knowledge in the roots of computation and mathematics. I have a deep passion for open source software and the Linux ecosystem. I am looking for a position where I can make an impact while growing my knowledge and skills.",
-  "jobs": [
+  "experience": [
     {
       "company": "Anne Arundel Community College",
       "address": {
@@ -24,12 +24,10 @@
         "zip": "21012"
       },
       "position": "Mathematics Tutor",
-      "dates": {
-        "start": "2016-08",
-        "end": "2017-07"
-      },
+      "start_date": "2016-08",
+      "end_date": "2017-07",
       "description": "I tutored students at AACC's Math Lab, a walk in tutoring environment. I helped students to master the skills necessary for success in all mathematics subjects, from basic algebra to differential equations.",
-      "highlights": null
+      "highlights": []
     },
     {
       "company": "Northrop Grumman",
@@ -40,10 +38,8 @@
         "zip": "21240"
       },
       "position": "Embedded Software Engineer",
-      "dates": {
-        "start": "2017-07",
-        "end": "2019-08"
-      },
+      "start_date": "2017-07",
+      "end_date": "2019-08",
       "description": " I worked on the embedded software for several large radar systems, with areas of functionality including signal processing, radio control, target tracking, and data transport. As a key engineer on the team, I worked closely with systems engineers to implement new algorithms, perform lab testing, and improve performance.",
       "highlights": [
         "Architected and implemented a new search and target tracking algorithm in C++, utilizing first of it's kind hardware functionality.",
@@ -60,10 +56,8 @@
         "zip": "59715"
       },
       "position": "Firmware Engineer",
-      "dates": {
-        "start": "2019-08",
-        "end": null
-      },
+      "start_date": "2019-08",
+      "end_date": "Present",
       "description": "I worked on the firmware for several IoT products for various clients, including utility, air quality, safety, and industrial applications. I worked closely with engineers from diverse fields to develop new products, and with clients to understand their needs and develop solutions.",
       "highlights": [
         "As the primary firmware engineer, utilized Buildroot and Nerves/Elixir in the development of an air quality monitoring system for a custom hardware platform. Designed to expand to support additional sensors and functionality.",
@@ -86,16 +80,11 @@
         "A.S. in Computer Science",
         "A.S. in Mathematics"
       ],
-      "dates": {
-        "start": "2014-01",
-        "end": "2016-07"
-      },
+      "start_date": "2014-01",
+      "end_date": "2016-07",
       "gpa": 3.8,
-      "awards": [
-        {
-          "name": "Mathematics Department Award",
-          "date": "2016-06"
-        }
+      "highlights": [
+        "Mathematics Department Award, 2016"
       ]
     },
     {
@@ -110,81 +99,231 @@
         "B.S. in Computer Science",
         "B.A. in Mathematics"
       ],
-      "dates": {
-        "start": "2016-08",
-        "end": "2018-12"
-      },
+      "start_date": "2016-08",
+      "end_date": "2018-12",
       "gpa": 3.8,
-      "awards": [
-        {
-          "name": "Computer Science Department Magna Cum Laude",
-          "date": "2018-12"
-        },
-        {
-          "name": "Pi Mu Epsilon Mathematics Honor Society",
-          "date": "2017-08"
-        }
+      "highlights": [
+        "Computer Science Department Magna Cum Laude",
+        "Pi Mu Epsilon Mathematics Honor Society"
       ]
     }
   ],
-  "skills": {
-    "languages": {
-      "expert": [
-        "C",
-        "C++",
-        "Python",
-        "Lua",
-        "Bash"
-      ],
-      "proficient": [
-        "Rust",
-        "Go",
-        "Elixir",
-        "Scheme"
-      ],
-      "basic": [
-        "HTML",
-        "CSS",
-        "Typescript/JavaScript",
-        "SQL",
-        "Haskell"
-      ]
+  "skills": [
+    {
+      "language": {
+        "name": "C",
+        "level": "expert"
+      }
     },
-    "platforms": [
-      "Windows",
-      "Linux",
-      "Buildroot",
-      "FreeRTOS",
-      "Nerves",
-      "Zephyr",
-      "Bare Metal",
-      "AWS IoT"
-    ],
-    "tools": [
-      "Git",
-      "Jira",
-      "CircleCI",
-      "Github Actions",
-      "Docker",
-      "Caddy",
-      "Ansible",
-      "GDB"
-    ]
-  },
-  "interests": {
-    "professional": [
-      "Embedded Systems",
-      "Firmware",
-      "Compilers",
-      "Linux",
-      "Rust"
-    ],
-    "personal": [
-      "Music",
-      "Video Games",
-      "Board Games",
-      "Horror",
-      "Home Server Administration"
-    ]
-  }
+    {
+      "language": {
+        "name": "C++",
+        "level": "expert"
+      }
+    },
+    {
+      "language": {
+        "name": "Python",
+        "level": "expert"
+      }
+    },
+    {
+      "language": {
+        "name": "Lua",
+        "level": "expert"
+      }
+    },
+    {
+      "language": {
+        "name": "Bash",
+        "level": "expert"
+      }
+    },
+    {
+      "language": {
+        "name": "Rust",
+        "level": "proficient"
+      }
+    },
+    {
+      "language": {
+        "name": "Go",
+        "level": "proficient"
+      }
+    },
+    {
+      "language": {
+        "name": "Elixir",
+        "level": "proficient"
+      }
+    },
+    {
+      "language": {
+        "name": "Scheme",
+        "level": "proficient"
+      }
+    },
+    {
+      "language": {
+        "name": "HTML",
+        "level": "proficient"
+      }
+    },
+    {
+      "language": {
+        "name": "CSS",
+        "level": "basic"
+      }
+    },
+    {
+      "language": {
+        "name": "Typescript/JavaScript",
+        "level": "basic"
+      }
+    },
+    {
+      "language": {
+        "name": "SQL",
+        "level": "basic"
+      }
+    },
+    {
+      "language": {
+        "name": "Haskell",
+        "level": "basic"
+      }
+    },
+    {
+      "platform": {
+        "name": "Windows"
+      }
+    },
+    {
+      "platform": {
+        "name": "Linux"
+      }
+    },
+    {
+      "platform": {
+        "name": "Buildroot"
+      }
+    },
+    {
+      "platform": {
+        "name": "FreeRTOS"
+      }
+    },
+    {
+      "platform": {
+        "name": "Nerves"
+      }
+    },
+    {
+      "platform": {
+        "name": "Zephyr"
+      }
+    },
+    {
+      "platform": {
+        "name": "Bare Metal"
+      }
+    },
+    {
+      "platform": {
+        "name": "AWS IoT"
+      }
+    },
+    {
+      "tool": {
+        "name": "Git"
+      }
+    },
+    {
+      "tool": {
+        "name": "Jira"
+      }
+    },
+    {
+      "tool": {
+        "name": "CircleCI"
+      }
+    },
+    {
+      "tool": {
+        "name": "Github Actions"
+      }
+    },
+    {
+      "tool": {
+        "name": "Docker"
+      }
+    },
+    {
+      "tool": {
+        "name": "Caddy"
+      }
+    },
+    {
+      "tool": {
+        "name": "Ansible"
+      }
+    },
+    {
+      "tool": {
+        "name": "GDB"
+      }
+    }
+  ],
+  "interests": [
+    {
+      "professional": {
+        "name": "Embedded Systems"
+      }
+    },
+    {
+      "professional": {
+        "name": "Firmware"
+      }
+    },
+    {
+      "professional": {
+        "name": "Compilers"
+      }
+    },
+    {
+      "professional": {
+        "name": "Linux"
+      }
+    },
+    {
+      "professional": {
+        "name": "Rust"
+      }
+    },
+    {
+      "personal": {
+        "name": "Music"
+      }
+    },
+    {
+      "personal": {
+        "name": "Video Games"
+      }
+    },
+    {
+      "personal": {
+        "name": "Board Games"
+      }
+    },
+    {
+      "personal": {
+        "name": "Horror"
+      }
+    },
+    {
+      "personal": {
+        "name": "Home Server Administration"
+      }
+    }
+  ]
 }
