@@ -1,4 +1,4 @@
-use crate::resume::Resume;
+use crate::resume::{Resume, Skill, SkillLevel};
 use actix_web::web;
 use askama_actix::{Template, TemplateToResponse};
 
@@ -21,5 +21,11 @@ pub struct ExperienceTemplate {
 #[derive(Template)]
 #[template(path = "education.html")]
 pub struct EducationTemplate {
+    pub resume: web::Data<Resume>,
+}
+
+#[derive(Template)]
+#[template(path = "skills.html")]
+pub struct SkillsTemplate {
     pub resume: web::Data<Resume>,
 }

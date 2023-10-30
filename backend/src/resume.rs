@@ -83,6 +83,17 @@ impl std::fmt::Display for Address {
     }
 }
 
+impl std::fmt::Display for SkillLevel {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        let msg = match self {
+            SkillLevel::basic => "Basic",
+            SkillLevel::proficient => "Proficient",
+            SkillLevel::expert => "Expert",
+        };
+        write!(f, "{}", msg)
+    }
+}
+
 pub fn get() -> Result<Resume> {
     Ok(toml::from_str(RESUME_STR)?)
 }

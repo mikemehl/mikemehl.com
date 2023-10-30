@@ -16,6 +16,7 @@ async fn main() -> std::io::Result<()> {
             .service(routes::intro)
             .service(routes::experience)
             .service(routes::education)
+            .service(routes::skills)
     })
     .bind(("0.0.0.0", 8080))?
     .run()
