@@ -1,5 +1,8 @@
-mod resume;
+#[allow(non_camel_case_types)]
+pub(crate) mod resume;
+
 mod routes;
+mod templates;
 
 use actix_web::{web, App, HttpServer};
 
@@ -9,8 +12,10 @@ async fn main() -> std::io::Result<()> {
     HttpServer::new(move || {
         App::new()
             .app_data(web::Data::new(resume_data.clone()))
-            .service(routes::hello)
+            .service(routes::index)
             .service(routes::intro)
+            .service(routes::experience)
+            .service(routes::education)
     })
     .bind(("0.0.0.0", 8080))?
     .run()

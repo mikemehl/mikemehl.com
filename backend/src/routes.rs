@@ -1,40 +1,24 @@
 use crate::resume::Resume;
+use crate::templates;
 use actix_web::web;
-use actix_web::{get, HttpResponse, Responder};
-use lazy_static::lazy_static;
-use tera::{Context, Tera};
-
-lazy_static! {
-    pub static ref TEMPLATES: Tera = {
-        let mut tera = match Tera::new("src/templates/**/*") {
-            Ok(t) => t,
-            Err(e) => {
-                println!("Parsing error(s): {}", e);
-                ::std::process::exit(1);
-            }
-        };
-        tera.autoescape_on(vec![".html"]);
-        tera
-    };
-}
+use actix_web::{get, Responder};
 
 #[get("/")]
-async fn hello() -> impl Responder {
-    let ctx = Context::new();
-    if let Ok(resp) = TEMPLATES.render("index.html", &ctx) {
-        HttpResponse::Ok().body(resp)
-    } else {
-        HttpResponse::InternalServerError().body("Template error")
-    }
+async fn index() -> impl Responder {
+    templates::IndexTemplate {}
 }
 
 #[get("/intro")]
 async fn intro(resume: web::Data<Resume>) -> impl Responder {
-    let mut ctx = Context::new();
-    ctx.insert("resume", &resume);
-    if let Ok(resp) = TEMPLATES.render("intro.html", &ctx) {
-        HttpResponse::Ok().body(resp)
-    } else {
-        HttpResponse::InternalServerError().body("Template error")
-    }
+    templates::IntroTemplate { resume }
+}
+
+#[get("/experience")]
+async fn experience(resume: web::Data<Resume>) -> impl Responder {
+    templates::ExperienceTemplate { resume }
+}
+
+#[get("/education")]
+async fn education(resume: web::Data<Resume>) -> impl Responder {
+    templates::EducationTemplate { resume }
 }
