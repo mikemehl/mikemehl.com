@@ -71,6 +71,7 @@ pub struct Resume {
     pub experience: Vec<Experience>,
     pub interests: Vec<Interest>,
     pub skills: Vec<Skill>,
+    pub contact: Contact,
 }
 
 impl std::fmt::Display for Address {

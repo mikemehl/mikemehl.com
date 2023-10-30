@@ -27,3 +27,8 @@ async fn education(resume: web::Data<Resume>) -> impl Responder {
 async fn skills(resume: web::Data<Resume>) -> impl Responder {
     templates::SkillsTemplate { resume }
 }
+
+#[get("/interests")]
+async fn interests(resume: web::Data<Resume>) -> impl Responder {
+    templates::InterestsTemplate { resume }
+}
