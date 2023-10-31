@@ -1,0 +1,19 @@
+version: "3.7"
+services:
+  caddy:
+    container_name: caddy
+    image: caddy:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./caddy:/config
+    command: caddy reverse-proxy --from mikemehl.com --to backend:8080
+    restart: unless-stopped
+    depends_on:
+      - backend
+  backend:
+    container_name: backend
+    build:
+      context: .
+    restart: unless-stopped
