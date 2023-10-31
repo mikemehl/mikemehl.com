@@ -1,22 +1,27 @@
-<h1>Interests</h1>
-<p>Just things I like. 😇</p>
-<h2>Professional</h2>
-<ul>
-  {% for interest in resume.interests %}
-  {% match interest %}
-  {% when Interest::professional {name} %}
-  <li>{{ name }}</li>
-  {% else %}
-  {% endmatch %}
-  {% endfor %}
-</ul>
-<h2>Personal</h2>
-<ul>
-  {% for interest in resume.interests %}
-  {% match interest %}
-  {% when Interest::personal {name} %}
-  <li>{{ name }}</li>
-  {% else %}
-  {% endmatch %}
-  {% endfor %}
-</ul>
+{%extends "index.html"%}
+{% block content %}
+<div class="container" id="content">
+  <h1>Interests</h1>
+  <p>Just things I like. 😇</p>
+  <h2>Professional</h2>
+  <ul>
+    {% for interest in resume.interests %}
+    {% match interest %}
+    {% when Interest::professional {name} %}
+    <li>{{ name }}</li>
+    {% else %}
+    {% endmatch %}
+    {% endfor %}
+  </ul>
+  <h2>Personal</h2>
+  <ul>
+    {% for interest in resume.interests %}
+    {% match interest %}
+    {% when Interest::personal {name} %}
+    <li>{{ name }}</li>
+    {% else %}
+    {% endmatch %}
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

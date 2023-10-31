@@ -1,38 +1,43 @@
-<h1>Skills</h1>
-<p>Here are some of the skills I've learned and used in my work.</p>
-<details>
-  <summary>Programming Languages</summary>
-  <ul>
-    {% for skill in resume.skills %}
-    {% match skill %}
-    {% when Skill::language {name, level} %}
-    <li>{{ name }} <i>({{ level }})</i></li>
-    {% else %}
-    {% endmatch %}
-    {% endfor %}
-  </ul>
-</details>
-<details>
-  <summary>Platforms</summary>
-  <ul>
-    {% for skill in resume.skills %}
-    {% match skill %}
-    {% when Skill::platform {name} %}
-    <li>{{ name }}</li>
-    {% else %}
-    {% endmatch %}
-    {% endfor %}
-  </ul>
-</details>
-<details>
-  <summary>Tools</summary>
-  <ul>
-    {% for skill in resume.skills %}
-    {% match skill %}
-    {% when Skill::tool {name} %}
-    <li>{{ name }}</li>
-    {% else %}
-    {% endmatch %}
-    {% endfor %}
-  </ul>
-</details>
+{%extends "index.html"%}
+{% block content %}
+<div class="container" id="content">
+  <h1>Skills</h1>
+  <p>Here are some of the skills I've learned and used in my work.</p>
+  <details>
+    <summary>Programming Languages</summary>
+    <ul>
+      {% for skill in resume.skills %}
+      {% match skill %}
+      {% when Skill::language {name, level} %}
+      <li>{{ name }} <i>({{ level }})</i></li>
+      {% else %}
+      {% endmatch %}
+      {% endfor %}
+    </ul>
+  </details>
+  <details>
+    <summary>Platforms</summary>
+    <ul>
+      {% for skill in resume.skills %}
+      {% match skill %}
+      {% when Skill::platform {name} %}
+      <li>{{ name }}</li>
+      {% else %}
+      {% endmatch %}
+      {% endfor %}
+    </ul>
+  </details>
+  <details>
+    <summary>Tools</summary>
+    <ul>
+      {% for skill in resume.skills %}
+      {% match skill %}
+      {% when Skill::tool {name} %}
+      <li>{{ name }}</li>
+      {% else %}
+      {% endmatch %}
+      {% endfor %}
+    </ul>
+  </details>
+</div>
+{% endblock %}

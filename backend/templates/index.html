@@ -5,28 +5,34 @@
   <title>/// m i k e / m e h l ///</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- <link href="css/style.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://unpkg.com/missing.css@1.1.1">
   <script src="https://unpkg.com/htmx.org@1.9.6"></script>
 </head>
 
-<body hx-boost="true" hx-target="#content">
-  <header>
-    <nav>
-      <a href="/intro">Home</a>
-      <a href="/experience">Experience</a>
-      <a href="/education">Education</a>
-      <a href="/skills">Skills</a>
-      <a href="/interests">Interests</a>
-    </nav>
-  </header>
-  <main>
-    <div id="content" hx-trigger="revealed" hx-get="/intro"></div>
-  </main>
-  <footer>
-    <a href="mailto:michaelalanmehl@gmail.com">email: michaelalanmehl@gmail.com</a> |
-    <a href="github.com/mikemehl">github</a> |
-    <a href="git.sr.ht/~micklemeal">sourcehut</a>
-  </footer>
+<body hx-boost="true" hx-target="#content" hx-select="#content" hx-swap="outerHTML">
+  <div class="container">
+    <header class="padding-end">
+      <h1 class="text-align:center fullbleed mono-font massivetext">/// m i k e / m e h l ///</h1>
+      <nav class="nabvbar autodensity">
+        <a href="/intro">Home</a> |
+        <a href="/experience">Experience</a> |
+        <a href="/education">Education</a> |
+        <a href="/skills">Skills</a> |
+        <a href="/interests">Interests</a>
+      </nav>
+    </header>
+    <main>
+      {% block content %}
+      <div class="container" id="content" hx-trigger="revealed" hx-get="/intro">
+      </div>
+      {% endblock %}
+    </main>
+    <footer>
+      <a href="mailto:michaelalanmehl@gmail.com">email: michaelalanmehl@gmail.com</a> |
+      <a href="github.com/mikemehl">github</a> |
+      <a href="git.sr.ht/~micklemeal">sourcehut</a>
+    </footer>
+  </div>
 </body>
 
 </html>
