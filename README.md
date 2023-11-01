@@ -4,10 +4,9 @@ It's my website! I built this to have a place to put my resume and show off some
 
 Technologies used:
 
-  - [X] SQLite
-  - [~] Rust (Actix)
-  - [ ] HTMX
-  - [ ] TailwindCSS
-  - [ ] Caddy
-  - [ ] Terraform
-  - [ ] AWS
+  - Rust 
+    - Actix 
+    - Askama
+    - Serde
+  - HTMX
+  - Caddy

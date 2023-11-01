@@ -2,20 +2,6 @@ name = "Michael Mehl"
 objective = "I am a software engineer who loves his craft. My primary driving force as an engineer is curiosity, and I take deep pride in my background knowledge in the roots of computation and mathematics. I have a deep passion for open source software and the Linux ecosystem. I am looking for a position where I can make an impact while growing my knowledge and skills."
 
 [[education]]
-degrees = ["A.S. in Computer Science", "A.S. in Mathematics"]
-end_date = "2016-07"
-gpa = 3.8
-highlights = ["Mathematics Department Award, 2016"]
-name = "Anne Arundel Community College"
-start_date = "2014-01"
-
-[education.address]
-city = "Arnold"
-state = "MD"
-street = "101 College Pkwy"
-zip = "21012"
-
-[[education]]
 degrees = ["B.S. in Computer Science", "B.A. in Mathematics"]
 end_date = "2018-12"
 gpa = 3.8
@@ -32,19 +18,38 @@ state = "MD"
 street = "1000 Hilltop Cir"
 zip = "21250"
 
-[[experience]]
-company = "Anne Arundel Community College"
-description = "I tutored students at AACC's Math Lab, a walk in tutoring environment. I helped students to master the skills necessary for success in all mathematics subjects, from basic algebra to differential equations."
-end_date = "2017-07"
-highlights = []
-position = "Mathematics Tutor"
-start_date = "2016-08"
+[[education]]
+degrees = ["A.S. in Computer Science", "A.S. in Mathematics"]
+end_date = "2016-07"
+gpa = 3.7
+highlights = ["Mathematics Department Award, 2016"]
+name = "Anne Arundel Community College"
+start_date = "2014-01"
 
-[experience.address]
+[education.address]
 city = "Arnold"
 state = "MD"
 street = "101 College Pkwy"
 zip = "21012"
+
+[[experience]]
+company = "Very"
+description = "I worked on the firmware for several IoT products for various clients, including utility, air quality, safety, and industrial applications. I worked closely with engineers from diverse fields to develop new products, and with clients to understand their needs and develop solutions."
+end_date = "Present"
+highlights = [
+  "As the primary firmware engineer, utilized Buildroot and Nerves/Elixir in the development of an air quality monitoring system for a custom hardware platform. Designed to expand to support additional sensors and functionality.",
+  "Improved the performance of a bare metal embedded system for an IoT utility monitoring product and helped the client bring their product to launch.",
+  "Worked closely with backend engineers to enable a new product to communicate with AWS IoT.",
+  "Aided clients in preparing their products for FCC and UL certification.",
+]
+position = "Firmware Engineer"
+start_date = "2019-08"
+
+[experience.address]
+city = "Bozeman"
+state = "MT"
+street = "280 W Kagy Blvd STE D #292"
+zip = "59715"
 
 [[experience]]
 company = "Northrop Grumman"
@@ -65,23 +70,19 @@ street = "7323 Aviation Blvd"
 zip = "21240"
 
 [[experience]]
-company = "Very"
-description = "I worked on the firmware for several IoT products for various clients, including utility, air quality, safety, and industrial applications. I worked closely with engineers from diverse fields to develop new products, and with clients to understand their needs and develop solutions."
-end_date = "Present"
-highlights = [
-  "As the primary firmware engineer, utilized Buildroot and Nerves/Elixir in the development of an air quality monitoring system for a custom hardware platform. Designed to expand to support additional sensors and functionality.",
-  "Improved the performance of a bare metal embedded system for an IoT utility monitoring product and helped the client bring their product to launch.",
-  "Worked closely with backend engineers to enable a new product to communicate with AWS IoT.",
-  "Aided clients in preparing their products for FCC and UL certification.",
-]
-position = "Firmware Engineer"
-start_date = "2019-08"
+company = "Anne Arundel Community College"
+description = "I tutored students at AACC's Math Lab, a walk in tutoring environment. I helped students to master the skills necessary for success in all mathematics subjects, from basic algebra to differential equations."
+end_date = "2017-07"
+highlights = []
+position = "Mathematics Tutor"
+start_date = "2016-08"
 
 [experience.address]
-city = "Bozeman"
-state = "MT"
-street = "280 W Kagy Blvd STE D #292"
-zip = "59715"
+city = "Arnold"
+state = "MD"
+street = "101 College Pkwy"
+zip = "21012"
+
 
 [[interests]]
 

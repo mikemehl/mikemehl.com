@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Michael Mehl - Resume</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://unpkg.com/missing.css@1.1.1">
+</head>
+
+<body>
+  <main class="crowded">
+    <article>
+      <h1 class="mono-font">{{ resume.name }}</h1>
+      {{ resume.address }}
+      <br>
+      {{ resume.contact.phone }}<br>
+      <a href="mailto:michaelalanmehl@gmail.com">michaelalanmehl@gmail.com</a> |
+      <a href="github.com/mikemehl">github</a> |
+      <a href="git.sr.ht/~micklemeal">sourcehut</a>
+      <br>
+      <br>
+      {{ resume.objective }}
+    </article>
+    <hr>
+    <article>
+      <h2>Experience</h2>
+      {% for place in resume.experience %}
+      <section>
+        <h3>{{ place.company }}</h3>
+        <b>{{place.position}}</b><br>
+        <i>{{place.start_date}} - {{place.end_date}}</i><br>
+        <i>{{place.address}}</i><br>
+        <p>{{place.description}}</p>
+        <b>Highlights:</b>
+        <ul>
+          {% if place.highlights.len() > 0 %}
+          {% for highlight in place.highlights %}
+          <li>{{highlight}}</li>
+          {% endfor %}
+          {% endif %}
+        </ul>
+      </section>
+      {% endfor %}
+    </article>
+    <hr>
+    <article>
+      <h2>Education</h2>
+      {% for school in resume.education %}
+      <section>
+        <h3>{{ school.name }}</h3>
+        <b>Degree(s):</b> {% for degree in school.degrees %} {{degree}}, {% endfor %}<br>
+        <b>Dates Attended:</b> {{ school.start_date }} - {{ school.end_date }}<br>
+        <b>GPA:</b> {{ school.gpa }}<br>
+        <b>Highlights:</b>
+        <ul>
+          {% for highlight in school.highlights %}
+          <li>{{ highlight }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+      {% endfor %}
+    </article>
+    <hr>
+    <article>
+      <h3>Skills</h3>
+      <div class="f-row">
+        <section class="f-col">
+          <b>Programming Languages</b>
+          <ul>
+            {% for skill in resume.skills %}
+            {% match skill %}
+            {% when Skill::language {name, level} %}
+            <li>{{ name }} <i>({{ level }})</i></li>
+            {% else %}
+            {% endmatch %}
+            {% endfor %}
+          </ul>
+        </section>
+        <section class="f-col">
+          <b>Platforms</b>
+          <ul>
+            {% for skill in resume.skills %}
+            {% match skill %}
+            {% when Skill::platform {name} %}
+            <li>{{ name }}</li>
+            {% else %}
+            {% endmatch %}
+            {% endfor %}
+          </ul>
+        </section>
+        <section class="f-col">
+          <b>Tools</b>
+          <ul>
+            {% for skill in resume.skills %}
+            {% match skill %}
+            {% when Skill::tool {name} %}
+            <li>{{ name }}</li>
+            {% else %}
+            {% endmatch %}
+            {% endfor %}
+          </ul>
+        </section>
+      </div>
+    </article>
+    <hr>
+    <article>
+      <h3>Interests</h3>
+      <div class="f-row">
+        <div class="f-col">
+          <b>Professional</b>
+          <ul>
+            {% for interest in resume.interests %}
+            {% match interest %}
+            {% when Interest::professional {name} %}
+            <li>{{ name }}</li>
+            {% else %}
+            {% endmatch %}
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="f-col">
+          <b>Personal</b>
+          <ul>
+            {% for interest in resume.interests %}
+            {% match interest %}
+            {% when Interest::personal {name} %}
+            <li>{{ name }}</li>
+            {% else %}
+            {% endmatch %}
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </article>
+  </main>
+</body>
+
+</html>

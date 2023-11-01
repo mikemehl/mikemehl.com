@@ -6,8 +6,7 @@
   <details>
     <summary>Programming Languages</summary>
     <ul>
-      {% for skill in resume.skills %}
-      {% match skill %}
+      {% for skill in resume.skills %} {% match skill %}
       {% when Skill::language {name, level} %}
       <li>{{ name }} <i>({{ level }})</i></li>
       {% else %}

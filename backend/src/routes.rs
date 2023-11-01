@@ -32,3 +32,8 @@ async fn skills(resume: web::Data<Resume>) -> impl Responder {
 async fn interests(resume: web::Data<Resume>) -> impl Responder {
     templates::InterestsTemplate { resume }
 }
+
+#[get("/singlepage")]
+async fn singlepage(resume: web::Data<Resume>) -> impl Responder {
+    templates::SinglePageTemplate { resume }
+}

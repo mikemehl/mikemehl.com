@@ -35,3 +35,9 @@ pub struct SkillsTemplate {
 pub struct InterestsTemplate {
     pub resume: web::Data<Resume>,
 }
+
+#[derive(Template)]
+#[template(path = "single-page.html")]
+pub struct SinglePageTemplate {
+    pub resume: web::Data<Resume>,
+}

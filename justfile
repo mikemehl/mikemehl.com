@@ -3,7 +3,7 @@ deploy_host := "homie"
 deploy_host_dir := "~"
 
 deploy-test: copy-deploy-files
-  cd {{deploy_dir}} && docker-compose up --build
+  cd {{deploy_dir}} && docker compose up --build
 
 deploy-package: copy-deploy-files
   makeself {{deploy_dir}} mikemehl.com.run "mikemehl.com Deployment" ./deploy.sh --target /www/mikemehl.com --notemp --needroot --chown
@@ -13,7 +13,11 @@ deploy: deploy-package
   ssh -t {{deploy_host}} "cd {{deploy_host_dir}} && doas ./mikemehl.com.run"
 
 [private]
-copy-deploy-files:
+build-backend:
+  cd ./backend && cargo build --release
+
+[private]
+copy-deploy-files: build-backend
   mkdir -p {{deploy_dir}}
   cp ./backend/target/release/backend {{deploy_dir}}
   cp ./Dockerfile {{deploy_dir}}
