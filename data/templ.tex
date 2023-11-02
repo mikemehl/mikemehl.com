@@ -1,0 +1,85 @@
+\begin{document}
+\section{$name$}
+
+$address$\\
+$contact.phone$\\
+\href{mailto:$contact.email$}{$email$}
+\textbar{} \href{$contact.github$}{github} \textbar{}
+\href{$contact.sourcehut$}{sourcehut}
+
+$objective$
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Experience}
+
+$for(experience)$
+\subsubsection{$experience.company$}
+
+\textbf{$experience.position$}\\
+\emph{$experience.start_date$ - $experience.end_date$}\\
+\emph{$experience.address$}
+
+$experience.description$
+
+\textbf{Highlights:}
+
+\begin{itemize}
+\tightlist
+$for(experience.highlights)$
+\item
+  $highlights$
+$endfor$
+\end{itemize}
+$endfor$
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Education}
+
+$for(education)$
+\subsubsection{$education.name$}
+
+\textbf{Degree(s):} $for(education.degree)$ $degree$ $endfor$\\
+\textbf{Dates Attended:} $education.start_date$ $education.end_date$\\
+\textbf{GPA:} $education.gpa$\\
+\textbf{Highlights:}
+
+\begin{itemize}
+\tightlist
+$for(education.highlights)$
+\item
+  $highlights$
+$endfor$
+\end{itemize}
+$endfor$
+
+\subsubsection{Skills}
+
+\textbf{Programming Languages}
+
+\begin{itemize}
+\tightlist
+$for(skills.languages)$
+\item $languages$
+$endfor$
+\end{itemize}
+
+\textbf{Platforms}
+
+\begin{itemize}
+\tightlist
+$for(skills.platforms)$
+\item $platforms$
+$endfor$
+\end{itemize}
+
+\textbf{Tools}
+
+\begin{itemize}
+\tightlist
+$for(skills.tools)$
+\item $tools$
+$endfor$
+\end{itemize}
+\end{document}

@@ -2,6 +2,14 @@ deploy_dir := "/tmp/deploy"
 deploy_host := "homie"
 deploy_host_dir := "~"
 
+resume:
+  #!/usr/bin/env bash
+  mkdir -p ./temp
+  pandoc data/resume.md --template data/templ.tex -t latex -o ./temp/resume.tex
+  pdflatex ./temp/resume.tex
+  cp ./temp/resume.pdf ./resume.pdf
+  rm -rf ./temp
+
 deploy-test: copy-deploy-files
   cd {{deploy_dir}} && docker compose up --build
 
