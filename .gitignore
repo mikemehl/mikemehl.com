@@ -2,3 +2,4 @@ db/**
 backend/target
 backend/embed/resume.db
 mikemehl.com.run
+**/*.pdf

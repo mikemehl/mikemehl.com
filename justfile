@@ -3,12 +3,10 @@ deploy_host := "homie"
 deploy_host_dir := "~"
 
 resume:
-  #!/usr/bin/env bash
-  mkdir -p ./temp
-  pandoc data/resume.md --template data/templ.tex -t latex -o ./temp/resume.tex
-  pdflatex ./temp/resume.tex
-  cp ./temp/resume.pdf ./resume.pdf
-  rm -rf ./temp
+  typst compile data/resume.typ
+
+resume-watch:
+  typst watch data/resume.typ resume.pdf --open zathura
 
 deploy-test: copy-deploy-files
   cd {{deploy_dir}} && docker compose up --build
