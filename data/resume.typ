@@ -32,7 +32,6 @@
     === #company #sub(brief)
     #position #sym.bar.v #emph( start ) - #emph( end ) #sym.bar.v #addresssection(address) 
     #if website != none { [ #link(website)[#website] ] }  \
-    #parbreak()
     #description \
     #for highlight in highlights {
       [- #highlight]
@@ -106,8 +105,10 @@
     *Languages*
     #for category in skills.languages.keys() { 
       let skill_list = skills.languages.at(category)
-      for skill in skill_list {
-        [- #skill]
+      if category != "basic" {
+        for skill in skill_list {
+          [- #skill]
+        }
       }
     } ],
     [ 
@@ -138,8 +139,8 @@
 #set page(
   paper: "a4",
   margin: (
-    top: 0.5in,
-    bottom: 0.5in,
+    top: 0.3in,
+    bottom: 0.3in,
     x: 0.4in
   )
 )
@@ -158,7 +159,7 @@
 #experiencesection(data.experience) 
 #line(length: 100%)
 #grid(
-  columns: (10fr, 1fr, 10fr),
+  columns: (5fr, 1fr, 5fr),
   educationsection(data.education),
-  line(angle: 90deg, length: 30%),
+  line(length: 20%, angle: 90deg),
   skillssection(data.skills))

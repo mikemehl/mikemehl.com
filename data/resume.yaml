@@ -12,23 +12,23 @@ education:
     degrees:
       - B.S. in Computer Science
       - B.A. in Mathematics
-    end_date: 12-2018
+    start_date: August 2016
+    end_date: December 2018
     gpa: 3.8
     highlights:
       - Computer Science Department Magna Cum Laude
       - Pi Mu Epsilon Mathematics Honor Society
     name: University of Maryland, Baltimore County
-    start_date: 08-2016
   - address: 101 College Pkwy Arnold, MD 21012
     degrees:
       - A.S. in Computer Science
       - A.S. in Mathematics
-    end_date: 07-2016
+    start_date: January 2014
+    end_date: July 2016
     gpa: 3.7
     highlights:
       - Mathematics Department Award, 2016
     name: Anne Arundel Community College
-    start_date: 01-2014
 experience:
   - address: Remote
     company: Very
@@ -36,33 +36,46 @@ experience:
     website: https://www.verytechnology.com
     description: >-
       I worked on the firmware for several IoT products for various clients, including 
-      utility, air quality, safety, and industrial applications. I worked closely with 
-      engineers from diverse fields to develop new products, and with clients to understand 
-      their needs and develop solutions.
+      utility, air quality, safety, and industrial applications. As a solo firmware engineer 
+      on most projects, I worked closely with hardware engineers, web developers, and 
+      graphic designers to develop new products and write firmware that meets clients' 
+      needs, while keeping a holistic system perspective. This role also featured daily
+      client interactions and travel for integration sessions.
+    position: Firmware Engineer
+    start_date: August 2021
     end_date: Present
     highlights:
-      - As the primary firmware engineer, utilized Buildroot and Nerves/Elixir in the development of an air quality monitoring system for a custom hardware platform. Designed to expand to support additional sensors and functionality.
-      - Improved the performance of a bare metal embedded system for an IoT utility monitoring product and helped the client bring their product to launch.
-      - Worked closely with backend engineers to enable a new product to communicate with AWS IoT.
+      - Utilized Buildroot and Nerves/Elixir in the development of an air quality monitoring
+        system for a custom hardware platform utilizing a Quectel cellular modem to connect with AWS.
+        This system was used to add connectivity to an existing line of products. Included integration
+        with a third party OTA platform.
+      - Improved the performance of a bare metal embedded system for a preseed client. The product was
+        an IoT utility monitoring system built on an ESP32 based platform, utilizing a LoRa radio.
+        After successfully improving their system, the client was able to secure seed funding and
+        successfully bring the product to market.
+      - Developed test firmware to aid with production line verification of functionality.
       - Aided clients in preparing their products for FCC and UL certification.
-    position: Firmware Engineer
-    start_date: 08-2021
   - address: 7323 Aviation Blvd Baltimore, MD 21240
     company: Northrop Grumman
-    brief: A DOD Contractor.
+    brief: A Department Of Defense and Aerospace contractor.
     website: https://www.northropgrumman.com
     description: >-
       I worked on the embedded software for several large radar systems, with areas of functionality including signal processing, 
       radio control, target tracking, and data transport. As a key engineer on the team, 
       I worked closely with systems engineers to implement new algorithms, perform lab 
       testing, and improve performance.
-    end_date: 08-2021
-    highlights:
-      - Architected and implemented a new search and target tracking algorithm in C++, utilizing first of it's kind hardware functionality.
-      - Worked with a team to port a legacy radar system to a new hardware platform, including a custom Linux distribution.
-      - Developed a testing application for replaying recorded radar data, allowing for rapid development and testing of new algorithms.
     position: Embedded Software Engineer
-    start_date: 07-2017
+    start_date: July 2017
+    end_date: August 2021
+    highlights:
+      - Architected and implemented a new search and target tracking algorithm in C++. The algorithm involved partitioning of
+        the search volume to utilize cutting edge hardware capabilities. Worked closely with systems and integration engineers to
+        implement the algorithm, develop host based test systems, optimize for the target platform, and verify functionality
+        during integration.
+      - Worked with a team to port a legacy radar system new hardware, including updating the software from a VxWorks based system to a
+        custom Linux distribution.
+      - Developed a testing application for replaying recorded radar data, allowing for rapid development and testing of new algorithms
+        from user workstations. This helped several engineers deliver early by allowing them to work independently from the integration lab.
   - address: 101 College Pkwy Arnold, MD 21012
     company: Anne Arundel Community College
     brief: Educational institution.
@@ -70,10 +83,10 @@ experience:
       I tutored students at AACC's Math Lab, a walk in tutoring environment. I helped students 
       to master the skills necessary for success in all mathematics subjects, from basic 
       algebra to differential equations.
-    end_date: 07-2017
+    start_date: August 2016
+    end_date: July 2017
     highlights: []
     position: Mathematics Tutor
-    start_date: 08-2016
 skills:
   languages:
     expert:
@@ -87,30 +100,27 @@ skills:
       - Go
       - Elixir
       - Scheme
-      - HTML
     basic:
+      - HTML
       - CSS
       - Typescript/JavaScript
       - SQL
       - Haskell
   platforms:
-    - Windows
     - Linux
     - Buildroot
-    - FreeRTOS
     - Nerves
     - Zephyr
     - AWS IoT
+    - Cellular
     - LoRa
-    - MQTT
     - ESP32
     - IMX6
-    - Cellular
   tools:
     - Git
     - Jira
     - CircleCI
-    - Github Actions
+    - GH Actions
     - Docker
     - Caddy
     - Ansible
