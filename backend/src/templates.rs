@@ -1,4 +1,4 @@
-use crate::resume::{Interest, Resume, Skill};
+use crate::resume::Resume;
 use actix_web::web;
 use askama_actix::Template;
 
@@ -27,17 +27,5 @@ pub struct EducationTemplate {
 #[derive(Template)]
 #[template(path = "skills.html")]
 pub struct SkillsTemplate {
-    pub resume: web::Data<Resume>,
-}
-
-#[derive(Template)]
-#[template(path = "interests.html")]
-pub struct InterestsTemplate {
-    pub resume: web::Data<Resume>,
-}
-
-#[derive(Template)]
-#[template(path = "single-page.html")]
-pub struct SinglePageTemplate {
     pub resume: web::Data<Resume>,
 }

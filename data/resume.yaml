@@ -1,8 +1,6 @@
-address:
-  city: Brooklyn Park
-  state: MD
-  street: 98 Hammonds Lane Apt 213
-  zip: "21225"
+name: Michael Mehl
+objective: I am a software engineer who loves his craft. My primary driving force as an engineer is curiosity, and I take deep pride in my background knowledge in the roots of computation and mathematics. I am passionate about open source software and the Linux ecosystem. I am looking for a position where I can make an impact while growing my knowledge and skills.
+address: 98 Hammonds Lane Apt 213 Brooklyn Park, MD 21225
 contact:
   email: michaelalanmehl@gmail.com
   github: https://github.com/mikemehl
@@ -10,11 +8,7 @@ contact:
   sourcehut: https://sr.ht/~micklemeal
   website: https://mikemehl.com
 education:
-  - address:
-      city: Baltimore
-      state: MD
-      street: 1000 Hilltop Cir
-      zip: "21250"
+  - address: 1000 Hilltop Cir Baltimore, MD 21250
     degrees:
       - B.S. in Computer Science
       - B.A. in Mathematics
@@ -25,11 +19,7 @@ education:
       - Pi Mu Epsilon Mathematics Honor Society
     name: University of Maryland, Baltimore County
     start_date: 08-2016
-  - address:
-      city: Arnold
-      state: MD
-      street: 101 College Pkwy
-      zip: "21012"
+  - address: 101 College Pkwy Arnold, MD 21012
     degrees:
       - A.S. in Computer Science
       - A.S. in Mathematics
@@ -57,11 +47,7 @@ experience:
       - Aided clients in preparing their products for FCC and UL certification.
     position: Firmware Engineer
     start_date: 08-2021
-  - address:
-      city: Baltimore
-      state: MD
-      street: 7323 Aviation Blvd
-      zip: "21240"
+  - address: 7323 Aviation Blvd Baltimore, MD 21240
     company: Northrop Grumman
     brief: A DOD Contractor.
     website: https://www.northropgrumman.com
@@ -77,11 +63,7 @@ experience:
       - Developed a testing application for replaying recorded radar data, allowing for rapid development and testing of new algorithms.
     position: Embedded Software Engineer
     start_date: 07-2017
-  - address:
-      city: Arnold
-      state: MD
-      street: 101 College Pkwy
-      zip: "21012"
+  - address: 101 College Pkwy Arnold, MD 21012
     company: Anne Arundel Community College
     brief: Educational institution.
     description: >-
@@ -92,22 +74,6 @@ experience:
     highlights: []
     position: Mathematics Tutor
     start_date: 08-2016
-interests:
-  professional:
-    - Embedded Systems
-    - Firmware
-    - Compilers
-    - Linux
-    - Rust
-  personal:
-    - Music
-    - Video Games
-    - Board Games
-    - Horror
-    - Home Server Administration
-
-name: Michael Mehl
-objective: I am a software engineer who loves his craft. My primary driving force as an engineer is curiosity, and I take deep pride in my background knowledge in the roots of computation and mathematics. I am passionate about open source software and the Linux ecosystem. I am looking for a position where I can make an impact while growing my knowledge and skills.
 skills:
   languages:
     expert:

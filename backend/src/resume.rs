@@ -1,34 +1,20 @@
 use anyhow::Result;
 use serde::Deserialize;
 
-const RESUME_STR: &str = include_str!("../../data/resume.toml");
+const RESUME_STR: &str = include_str!("../../data/resume.yaml");
 
 #[derive(Deserialize, Clone)]
-pub enum SkillLevel {
-    basic,
-    proficient,
-    expert,
+pub struct Languages {
+    pub expert: Vec<String>,
+    pub proficient: Vec<String>,
+    pub basic: Vec<String>,
 }
 
 #[derive(Deserialize, Clone)]
-pub enum Skill {
-    language { name: String, level: SkillLevel },
-    platform { name: String },
-    tool { name: String },
-}
-
-#[derive(Deserialize, Clone)]
-pub enum Interest {
-    professional { name: String },
-    personal { name: String },
-}
-
-#[derive(Deserialize, Clone)]
-pub struct Address {
-    pub street: String,
-    pub city: String,
-    pub state: String,
-    zip: String,
+pub struct Skills {
+    pub languages: Languages,
+    pub platforms: Vec<String>,
+    pub tools: Vec<String>,
 }
 
 #[derive(Deserialize, Clone)]
@@ -39,7 +25,7 @@ pub struct Education {
     pub start_date: String,
     pub end_date: String,
     pub highlights: Vec<String>,
-    pub address: Address,
+    pub address: String,
 }
 
 #[derive(Deserialize, Clone)]
@@ -50,7 +36,7 @@ pub struct Experience {
     pub start_date: String,
     pub end_date: String,
     pub highlights: Vec<String>,
-    pub address: Address,
+    pub address: String,
 }
 
 #[derive(Deserialize, Clone)]
@@ -65,36 +51,14 @@ pub struct Contact {
 #[derive(Deserialize, Clone)]
 pub struct Resume {
     pub name: String,
-    pub address: Address,
+    pub address: String,
     pub objective: String,
     pub education: Vec<Education>,
     pub experience: Vec<Experience>,
-    pub interests: Vec<Interest>,
-    pub skills: Vec<Skill>,
+    pub skills: Skills,
     pub contact: Contact,
 }
 
-impl std::fmt::Display for Address {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(
-            f,
-            "{}, {}, {} {}",
-            self.street, self.city, self.state, self.zip
-        )
-    }
-}
-
-impl std::fmt::Display for SkillLevel {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        let msg = match self {
-            SkillLevel::basic => "Basic",
-            SkillLevel::proficient => "Proficient",
-            SkillLevel::expert => "Expert",
-        };
-        write!(f, "{}", msg)
-    }
-}
-
 pub fn get() -> Result<Resume> {
-    Ok(toml::from_str(RESUME_STR)?)
+    Ok(serde_yaml::from_str(RESUME_STR)?)
 }

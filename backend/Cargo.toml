@@ -14,3 +14,5 @@ serde = { version = "1.0.190", features = ["derive"] }
 toml = "0.8.6"
 askama = { version = "0.12.1", features = ["with-actix-web"] }
 askama_actix = "0.14.0"
+serde_yaml = "0.9.27"
+actix-files = "0.6.2"

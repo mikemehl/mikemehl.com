@@ -4,6 +4,7 @@ pub(crate) mod resume;
 mod routes;
 mod templates;
 
+use actix_files as fs;
 use actix_web::{web, App, HttpServer};
 
 #[actix_web::main]
@@ -17,8 +18,7 @@ async fn main() -> std::io::Result<()> {
             .service(routes::experience)
             .service(routes::education)
             .service(routes::skills)
-            .service(routes::interests)
-            .service(routes::singlepage)
+            .service(fs::Files::new("/static", "./static"))
     })
     .bind(("0.0.0.0", 8080))?
     .run()

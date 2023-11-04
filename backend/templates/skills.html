@@ -6,35 +6,30 @@
   <details>
     <summary>Programming Languages</summary>
     <ul>
-      {% for skill in resume.skills %} {% match skill %}
-      {% when Skill::language {name, level} %}
-      <li>{{ name }} <i>({{ level }})</i></li>
-      {% else %}
-      {% endmatch %}
+      {% for skill in resume.skills.languages.expert %}
+      <li>{{ skill }}</li>
+      {% endfor %}
+      {% for skill in resume.skills.languages.proficient %}
+      <li>{{ skill }}</li>
+      {% endfor %}
+      {% for skill in resume.skills.languages.basic %}
+      <li>{{ skill }}</li>
       {% endfor %}
     </ul>
   </details>
   <details>
     <summary>Platforms</summary>
     <ul>
-      {% for skill in resume.skills %}
-      {% match skill %}
-      {% when Skill::platform {name} %}
-      <li>{{ name }}</li>
-      {% else %}
-      {% endmatch %}
+      {% for skill in resume.skills.platforms %}
+      <li>{{ skill }}</li>
       {% endfor %}
     </ul>
   </details>
   <details>
     <summary>Tools</summary>
     <ul>
-      {% for skill in resume.skills %}
-      {% match skill %}
-      {% when Skill::tool {name} %}
-      <li>{{ name }}</li>
-      {% else %}
-      {% endmatch %}
+      {% for skill in resume.skills.tools %}
+      <li>{{ skill }}</li>
       {% endfor %}
     </ul>
   </details>
