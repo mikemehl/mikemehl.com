@@ -1,4 +1,4 @@
-deploy_dir := "/tmp/deploy"
+tmp_deploy := "/tmp/mikemehl.com"
 deploy_host := "homie"
 deploy_host_dir := "~"
 
@@ -8,26 +8,25 @@ resume:
 resume-watch:
   typst watch data/resume.typ resume.pdf --open zathura
 
-deploy-test: copy-deploy-files
-  cd {{deploy_dir}} && docker compose up --build
+deploy-test: 
+  docker-compose up --build --always-recreate-deps --remove-orphans
 
-deploy-package: copy-deploy-files
-  makeself {{deploy_dir}} mikemehl.com.run "mikemehl.com Deployment" ./deploy.sh --target /www/mikemehl.com --notemp --needroot --chown
+deploy-package: build-package
+  makeself {{tmp_deploy}} mikemehl.com.run "mikemehl.com Deployment" ./deploy.sh --target /www/mikemehl.com --notemp --needroot --chown
+  just clean-temp-dir
 
 deploy: deploy-package
   scp ./mikemehl.com.run {{deploy_host}}:{{deploy_host_dir}}/mikemehl.com.run
   ssh -t {{deploy_host}} "cd {{deploy_host_dir}} && doas ./mikemehl.com.run"
 
-[private]
-build-backend:
-  cd ./backend && cargo build --release
+build-package: clean-temp-dir create-temp-dir
+  cd {{tmp_deploy}} && git --git-dir=/dev/null clone {{justfile_directory()}} . && rm -rf .git secret
+  cd {{tmp_deploy}} && just resume
+  cd {{tmp_deploy}} && docker build -t mikemehl.com .
+  cd {{tmp_deploy}} && docker save -o backend.tar.gz mikemehl.com 
 
-[private]
-copy-deploy-files: build-backend
-  mkdir -p {{deploy_dir}}
-  cp ./backend/target/release/backend {{deploy_dir}}
-  cp ./Dockerfile {{deploy_dir}}
-  cp ./docker-compose.yml {{deploy_dir}}
-  cp ./deploy.sh {{deploy_dir}}
-  chmod a+x {{deploy_dir}}/deploy.sh
-  chmod a+x {{deploy_dir}}/backend
+create-temp-dir:
+  mkdir -p {{tmp_deploy}}
+
+clean-temp-dir:
+  rm -rf {{tmp_deploy}}
