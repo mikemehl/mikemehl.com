@@ -11,5 +11,6 @@ COPY --from=builder /build/backend/target/x86_64-unknown-linux-musl/release/back
 WORKDIR /site
 RUN mkdir /site/static
 COPY ./static/resume.pdf /site/static/resume.pdf
+COPY ./static/keybase.txt /site/static/keybase.txt
 EXPOSE 8080
 ENTRYPOINT exec /site/backend

@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/micklemeal
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://mikemehl.com
+  * I am micklemeal (https://keybase.io/micklemeal) on keybase.
+  * I have a public key ASAvzi8IUq5ACNNJwTHt4-Ic4NvMvqD1QlifQCXR5IP17wo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01202fce2f0852ae4008d349c131ede3e21ce0dbccbea0f542589f4025d1e483f5ef0a",
+      "host": "keybase.io",
+      "kid": "01202fce2f0852ae4008d349c131ede3e21ce0dbccbea0f542589f4025d1e483f5ef0a",
+      "uid": "c2cf5a7de2631971238e0bc34a6a6419",
+      "username": "micklemeal"
+    },
+    "merkle_root": {
+      "ctime": 1701188817,
+      "hash": "59537797c96c59491fa928bbdd2a068090eb8c07735040a2b434d7edf4cb7ce8ccbf0c61703fee8b5103203910744ea69db52708e1ee9fabc3704e43080b37f7",
+      "hash_meta": "1d59351b14dae94de883fba5af7e9980a48ee110e7642af940bb02e49a2b088c",
+      "seqno": 25188451
+    },
+    "service": {
+      "entropy": "OIfU0vrOC14jkM+X8s5rUeJM",
+      "hostname": "mikemehl.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "6.2.3"
+  },
+  "ctime": 1701188828,
+  "expire_in": 504576000,
+  "prev": "a698f0579062c853c27c2ba006a59c28b4665d1d9433fb4137251092d0085f5f",
+  "seqno": 11,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgL84vCFKuQAjTScEx7ePiHODbzL6g9UJYn0Al0eSD9e8Kp3BheWxvYWTESpcCC8QgppjwV5BiyFPCfCugBqWcKLRmXR2UM/tBNyUQktAIX1/EIAm6snEygVQd8auxvp7coPA0Th5QNBtdsyY/5ALbH1kAAgHCo3NpZ8RA7A0OjD3eaYWq2o7JifElDEwqUQDEgFgeNKpBCu9oYZIxEY60pdQ+DuAXMZAmMw7AUfFh/8Fbj9a0GLlQ5BL5DqhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIKTCmXU5gwvVVZba4FMZQkZagWUPecUW2RISWfCaEDwFo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/micklemeal
+
+==================================================================

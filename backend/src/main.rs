@@ -4,7 +4,6 @@ pub(crate) mod resume;
 mod routes;
 mod templates;
 
-use actix_files as fs;
 use actix_web::{web, App, HttpServer};
 
 #[actix_web::main]
@@ -18,7 +17,11 @@ async fn main() -> std::io::Result<()> {
             .service(routes::experience)
             .service(routes::education)
             .service(routes::skills)
-            .service(fs::Files::new("/static", "./static"))
+            .route("/static/resume.pdf", web::get().to(routes::resume_file))
+            .route(
+                "/.well-known/keybase.txt",
+                web::get().to(routes::keybase_file),
+            )
     })
     .bind(("0.0.0.0", 8080))?
     .run()
