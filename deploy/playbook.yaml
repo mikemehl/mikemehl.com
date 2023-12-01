@@ -1,0 +1,60 @@
+---
+- name: Prepare docker image.
+  hosts: localhost
+  vars:
+    temp_img: /tmp/mikemehl.com.tar.gz
+  tasks:
+    - name: Build docker image locally.
+      docker_image:
+        name: mikemehl.com
+        source: build
+        build:
+          path: ../Dockerfile
+        tag: latest
+        state: present
+    - name: Save docker image to local storage.
+      docker_image:
+        name: mikemehl.com
+        source: local
+        archive_path: "{{temp_img}}"
+- name: Deploy site.
+  hosts: target
+  vars:
+    temp_img: /tmp/mikemehl.com.tar.gz
+    compose_file: ../docker-compose.yml
+    compose_target: /root/docker-compose.yml
+  tasks:
+    - name: Copy docker image to VPS.
+      copy:
+        src: "{{temp_img}}"
+        dest: "{{temp_img}}"
+        force: true
+        group: root
+        owner: root
+    - name: Load the image on the remote.
+      docker_image:
+        name: mikemehl.com
+        tag: latest
+        push: false
+        load_path: "{{temp_img}}"
+        source: load
+    - name: Get running containers.
+      docker_host_info:
+        containers: yes
+      register: docker_info
+    - name: Stop running containers.
+      docker_container:
+        name: "{{item}}"
+        state: stopped
+      loop: "{{docker_info.containers | map(attribute='Id') | list}}"
+    - name: Copy the compose file over.
+      copy:
+        src: "{{compose_file}}"
+        dest: "{{compose_target}}"
+        group: root
+        owner: root
+        force: true
+    - name: Start containers.
+      shell: docker compose up --force-recreate --build --detach --wait
+      args:
+        chdir: /root
