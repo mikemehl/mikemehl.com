@@ -36,6 +36,26 @@ pub(crate) async fn resume_file(_: HttpRequest) -> actix_web::Result<actix_files
     }
 }
 
+#[get("/.well-known/{sub}")]
+async fn wkd(path: web::Path<String>) -> impl Responder {
+    let err = Err(actix_web::error::ErrorNotFound("File not found"));
+    let fname = match path.into_inner().as_str() {
+        "keybase.txt" => Some("./static/keybase.txt"),
+        "policy" => SOme("./static/policy"),
+        "openpgpkey/hu/test.gpg" => Some("./static/test.gpg"),
+        _ => None,
+    };
+    if let Some(fname) = fname {
+        if let Ok(file) = actix_files::NamedFile::open(fname) {
+            Ok(file)
+        } else {
+            err
+        }
+    } else {
+        err
+    }
+}
+
 pub(crate) async fn keybase_file(_: HttpRequest) -> actix_web::Result<actix_files::NamedFile> {
     if let Ok(file) = actix_files::NamedFile::open("./static/keybase.txt") {
         Ok(file)

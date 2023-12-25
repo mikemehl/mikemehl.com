@@ -17,6 +17,7 @@ async fn main() -> std::io::Result<()> {
             .service(routes::experience)
             .service(routes::education)
             .service(routes::skills)
+            .service(routes::wkd)
             .route("/static/resume.pdf", web::get().to(routes::resume_file))
             .route(
                 "/.well-known/keybase.txt",
