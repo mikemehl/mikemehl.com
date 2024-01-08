@@ -1,0 +1,198 @@
+package components
+
+import "github.com/mikemehl.com/data"
+
+type NavItem struct {
+	Name  string
+	Url   string
+	Boost bool
+}
+
+var mainTitle = "///m i k e / m e h l///"
+
+var navItems = []NavItem{
+	{"Home", "/intro", true},
+	{"Experience", "/experience", true},
+	{"Education", "/education", true},
+	{"Skills", "/skills", true},
+	{"Blog", "/blog", false},
+	{"Resume", "/resume", false},
+}
+
+templ Filler() {
+	empty
+}
+
+templ Head(title string) {
+	<title>{ mainTitle }| { title }</title>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<link rel="stylesheet" href="https://unpkg.com/missing.css@1.1.1"/>
+	<script src="https://unpkg.com/htmx.org@1.9.6"></script>
+}
+
+templ NavLink(l NavItem) {
+	<a
+		href={ templ.URL(l.Url) }
+		if !l.Boost {
+			hx-boost="false"
+		}
+	>{ l.Name }</a>
+}
+
+templ Nav() {
+	<header class="padding-end">
+		<h1 class="text-align:center fullbleed mono-font massivetext">m i k e - m e h l</h1>
+		<nav class="navbar autodensity">
+			for _, entry := range navItems {
+				@NavLink(entry)
+			}
+		</nav>
+	</header>
+}
+
+templ Footer() {
+	<footer>
+		<a href="mailto:michaelalanmehl@gmail.com" hx-boost="false">email: michaelalanmehl@gmail.com</a> |
+		<a href="https://github.com/mikemehl" hx-boost="false">github</a> |
+		<a href="https://git.sr.ht/~micklemeal" hx-boost="false">sourcehut</a>
+	</footer>
+}
+
+templ Content() {
+	<div class="container" id="content">
+		{ children... }
+	</div>
+}
+
+templ Page(title string) {
+	<html>
+		<head>
+			@Head(title)
+		</head>
+		<body hx-boost="true" hx-target="#content" hx-select="#content" hx-swap="outerHTML">
+			<div class="container">
+				@Nav()
+				@Content() {
+					{ children... }
+				}
+				@Footer()
+			</div>
+		</body>
+	</html>
+}
+
+templ MainPage() {
+	<html>
+		<head>
+			@Head("uhhh....im a person lol")
+		</head>
+		<body hx-boost="true" hx-target="#content" hx-select="#content" hx-swap="outerHTML">
+			<div class="container">
+				@Nav()
+				<div class="container" id="content" hx-get="/intro" hx-trigger="revealed"></div>
+				@Footer()
+			</div>
+		</body>
+	</html>
+}
+
+templ Intro() {
+	@Content() {
+		<p>I am a software engineer who loves his craft. My primary driving force as an engineer is curiosity, and I take deep pride in my background knowledge in the roots of computation and mathematics. I am very passionate about open source software and the Linux ecosystem.</p>
+		<p>I made this website so you could learn a little about me. Hope ya like it.</p>
+	}
+}
+
+templ Experience() {
+	@Content() {
+		<h1>Experience</h1>
+		<p>A few of the places I've worked.</p>
+		for _, e := range data.Experiences {
+			<h2>{ e.Company } </h2>
+			<h3>{ e.Position } </h3>
+			<h4>{ e.StartDate } - { e.EndDate } </h4>
+			<p>Address: { e.Address } </p>
+			<p>{ e.Description } </p>
+			if len(e.Highlights) > 0 {
+				<h3>Highlights</h3>
+				<ul>
+					for _, a := range e.Highlights {
+						<li>{ a }</li>
+					}
+				</ul>
+			}
+		}
+	}
+}
+
+templ Education() {
+	@Content() {
+		<h1>Education</h1>
+		<p>My academic history.</p>
+		for _, e := range data.Educations {
+			<h2>{ e.Name } </h2>
+			<h3>
+				Degrees: 
+				for _, d := range e.Degrees {
+					{ d } |
+				}
+			</h3>
+			<h4>Attended: { e.StartDate } - { e.EndDate } </h4>
+			<h4>GPA: { e.Gpa } </h4>
+			<h4>Highlights</h4>
+			if len(e.Highlights) > 0 {
+				<h3>Highlights</h3>
+				<ul>
+					for _, a := range e.Highlights {
+						<li>{ a }</li>
+					}
+				</ul>
+			}
+		}
+	}
+}
+
+templ Skills() {
+	@Content() {
+		<h1>Skills</h1>
+		<p>Some of the skills I've learned and used in my work.</p>
+		<details>
+			<summary>Programming Languages</summary>
+			<h3>My Bread and Butter</h3>
+			<ul>
+				for _, l := range data.Skills.Langs.Expert {
+					<li>{ l }</li>
+				}
+			</ul>
+			<h3>Not As Much Experience But Pretty Dang Good</h3>
+			<ul>
+				for _, l := range data.Skills.Langs.Proficient {
+					<li>{ l }</li>
+				}
+			</ul>
+			<h3>Poked Around a Bit, But Not Super Experienced With</h3>
+			<ul>
+				for _, l := range data.Skills.Langs.Basic {
+					<li>{ l }</li>
+				}
+			</ul>
+		</details>
+		<details>
+			<summary>Platforms</summary>
+			<ul>
+				for _, l := range data.Skills.Platforms {
+					<li>{ l }</li>
+				}
+			</ul>
+		</details>
+		<details>
+			<summary>Tools</summary>
+			<ul>
+				for _, l := range data.Skills.Tools {
+					<li>{ l }</li>
+				}
+			</ul>
+		</details>
+	}
+}

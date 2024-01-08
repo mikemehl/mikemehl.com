@@ -1,31 +1,25 @@
 package main
 
+//go:generate templ generate
+
 import (
-	"html/template"
+	"fmt"
 	"net/http"
+
+	"github.com/a-h/templ"
+	"github.com/mikemehl.com/components"
 )
 
 func main() {
-	templates := InitTemplates()
-	for path, template := range templates {
-		http.HandleFunc("/"+path, func(w http.ResponseWriter, r *http.Request) {
-			template.Execute(w, nil)
-		})
-	}
-}
-
-func InitTemplates() map[string]*template.Template {
-	indexTemplate := template.Must(template.ParseGlob("templates/index.html"))
-	educationTemplate := template.Must(template.ParseGlob("templates/education.html"))
-	experienceTemplate := template.Must(template.ParseGlob("templates/experience.html"))
-	introTemplate := template.Must(template.ParseGlob("templates/intro.html"))
-	skillsTemplate := template.Must(template.ParseGlob("templates/skills.html"))
-
-	return map[string]*template.Template{
-		"index":      indexTemplate,
-		"education":  educationTemplate,
-		"experience": experienceTemplate,
-		"intro":      introTemplate,
-		"skills":     skillsTemplate,
-	}
+	fmt.Println("Hello, World!")
+	http.Handle("/", templ.Handler(components.MainPage()))
+	http.Handle("/intro", templ.Handler(components.Intro()))
+	http.Handle("/experience", templ.Handler(components.Experience()))
+	http.Handle("/education", templ.Handler(components.Education()))
+	http.Handle("/skills", templ.Handler(components.Skills()))
+	http.Handle("/resume", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w, r, "./static/resume.pdf")
+	}))
+	http.Handle("/blog", http.RedirectHandler("https://mikemehl.prose.sh", http.StatusFound))
+	http.ListenAndServe(":8080", nil)
 }
