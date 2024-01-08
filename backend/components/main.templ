@@ -15,6 +15,7 @@ var navItems = []NavItem{
 	{"Experience", "/experience", true},
 	{"Education", "/education", true},
 	{"Skills", "/skills", true},
+	{"Music", "/music", true},
 	{"Blog", "/blog", false},
 	{"Resume", "/resume", false},
 }
@@ -194,5 +195,28 @@ templ Skills() {
 				}
 			</ul>
 		</details>
+	}
+}
+
+templ Music() {
+	@Content() {
+		<h1>Music</h1>
+		<p>Music projects I've been apart of over the years. I threw in everything I could remember, but I'm sure there are lots I forgot.</p>
+		for _, b := range data.Music {
+			<section>
+				<h3>{ b.Name }</h3>
+				<h4>{ b.StartYear } - { b.EndYear }</h4>
+				<h4>Genres: { b.Genres }</h4>
+				<p>{ b.Description }</p>
+				if len(b.Player) > 0 {
+					@templ.Raw(b.Player)
+				}
+				if len(b.Links) > 0 {
+					for _, l := range b.Links {
+						| <a href={ templ.URL(l.Url) } hx-boost="false">{ l.Title }</a>
+					}
+				}
+			</section>
+		}
 	}
 }

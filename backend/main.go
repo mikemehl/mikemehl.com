@@ -17,6 +17,7 @@ func main() {
 	http.Handle("/experience", templ.Handler(components.Experience()))
 	http.Handle("/education", templ.Handler(components.Education()))
 	http.Handle("/skills", templ.Handler(components.Skills()))
+	http.Handle("/music", templ.Handler(components.Music()))
 	http.Handle("/resume", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		http.ServeFile(w, r, "./static/resume.pdf")
 	}))
